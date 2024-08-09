@@ -4,12 +4,12 @@ import './App.css';
 
 const WORD_SIZE = 5;
 let currentIndex = 0;
-const currentGuess = "";
 const randomIndex = Math.floor(Math.random() * words.length);
 const wordToGuess = words[randomIndex];
 console.log(wordToGuess)
 function App() {
   const [guesses, setGuesses] = useState(Array(6).fill(null));
+  const [currentGuess, setCurrentGuess] = useState('')
 
   return (
     <div className="App">
@@ -19,12 +19,20 @@ function App() {
           return <Line guess={guess ?? ''}/>
         })
       }
-      <input onKeyDown={(e) => {
+      <input 
+        type='text'value={currentGuess} 
+        onChange={(e) => {
+          setCurrentGuess(e.target.value);
+        }}
+        onKeyDown={(e) => {
           if (e.key == 'Enter') {
-            let newGuesses = [...guesses];
-            newGuesses[currentIndex] = 'hello';
-            setGuesses(newGuesses)
-            currentIndex++;
+            if (currentGuess.length == 5 && currentGuess.match(/^[a-zA-Z]{5}$/)) {
+              let newGuesses = [...guesses];
+              newGuesses[currentIndex] = currentGuess;
+              setCurrentGuess('');
+              setGuesses(newGuesses)
+              currentIndex++;
+            }
           }
         }}></input>
     </div>
