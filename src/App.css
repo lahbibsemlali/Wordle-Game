@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+body {
+    background-color: #000000;
+}
+
 .line {
    display: flex;
    justify-content: center;
-   gap: 10px;
+   gap: 5px;
 }
 
 .tile {
@@ -15,7 +19,8 @@
     height: 50px;
     width: 50px;
     justify-content: center;
-    border: 5px solid #000;
+    border: 4px solid #ccc;
+    border-radius: 15px;
 }
 
 .correct {
@@ -35,11 +40,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     font-family: 'Poppins', sans-serif;
 }
 
 .title {
+    color: #ccc;
     text-align: center;
     font-weight: 900;
     font-size: 48px;
@@ -47,15 +53,45 @@
 }
 
 .input {
-    max-width: 400px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     margin: 10px 0;
-    border: 5px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
     font-size: 16px;
-    justify-content: center;
+    color: #333;
+    background-color: #fff;
+}
+  
+.input:focus {
+    border-color: #ccc;
+    outline: none;
+}
+  
+.input::placeholder {
+    color: #aaa;
+    font-style: italic;
 }
 
-.input:focus {
-    background-color: #66afe9;
-  }
+label {
+    font-size: 20px;
+}
+
+.guess-button {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007BFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.play-again-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
