@@ -1,4 +1,4 @@
-# Wordle Clone
+# OpenDevEd-Wordle
 
 A simple clone of the popular Wordle game built with React.
 
