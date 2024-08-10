@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import words from "./words.json"
 import './App.css';
 import HowToPlay from './HowToPlay';
@@ -16,6 +16,17 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isGuessed, setIsGuessed] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
+  const [isNightMode, setIsNightMode] = useState(false);
+
+  useEffect(() => {
+    if (isNightMode) {
+      document.body.classList.add('night-mode');
+      document.body.classList.remove('day-mode');
+    } else {
+      document.body.classList.add('day-mode');
+      document.body.classList.remove('night-mode');
+    }
+  }, [isNightMode]);
 
   const resetGame = () => {
     setCurrentIndex(0);
@@ -80,9 +91,18 @@ function App() {
     return <div className='line'>{boxes}</div>
   }
 
+  const toggleMode = () => {
+    setIsNightMode(!isNightMode);
+  };
+
   return (
     <div className="App">
-      <h1 className='title'>Wordle</h1>
+      <div className='title-div'>
+        <button onClick={toggleMode} className={isNightMode ? 'toggle-btn night-btn' : 'toggle-btn day-btn'}>
+          {isNightMode ? '☼' : '☾'}
+        </button>
+        <h1 className='title'>Wordle</h1>
+      </div>
       {
         guesses.map(guess => {
           return <Line guess={guess ?? ''}/>
