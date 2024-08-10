@@ -1,29 +1,84 @@
 import { useState } from 'react';
 import words from "./words.json"
-import Modal from 'react-modal';
 import './App.css';
 import HowToPlay from './HowToPlay';
+import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
 const WORD_SIZE = 5;
-let currentIndex = 0;
-const randomIndex = Math.floor(Math.random() * words.length);
-let wordToGuess = words[randomIndex].toUpperCase();
-console.log(wordToGuess)
 function App() {
+  let randomIndex = Math.floor(Math.random() * words.length);
+  const randomWord = words[randomIndex].toUpperCase();
+  const [solution, setSolution] = useState(randomWord)
   const [guesses, setGuesses] = useState(Array(6).fill(null));
   const [currentGuess, setCurrentGuess] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [isGuessed, setIsGuessed] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
 
   const resetGame = () => {
-    currentIndex = 0;
+    setCurrentIndex(0);
     setIsGameOver(false);
     setIsGuessed(false);
     setGuesses(Array(6).fill(null));
-    wordToGuess = words[randomIndex].toUpperCase();
+    randomIndex = Math.floor(Math.random() * words.length);
+    setSolution(words[randomIndex].toUpperCase());
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (currentGuess.length === 5) {
+      let newGuesses = [...guesses];
+      newGuesses[currentIndex] = currentGuess.toUpperCase();
+      setCurrentGuess('');
+      setGuesses(newGuesses)
+      setCurrentIndex((old) => old + 1);
+    }
+  }
+
+  const handleChange = (e) => {
+    const guess = e.target.value;
+    if (guess.length < 6 && guess.match(/^[a-zA-Z]*$/))
+      setCurrentGuess(e.target.value.toUpperCase());
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      if (currentGuess.length === 5) {
+        if (currentGuess === solution) {
+          setIsGameOver(true);
+          setIsGuessed(true);
+        }
+        else if (currentIndex === 5)
+          setIsGameOver(true);
+        let newGuesses = [...guesses];
+        newGuesses[currentIndex] = currentGuess.toUpperCase();
+        setCurrentGuess('');
+        setGuesses(newGuesses)
+        setCurrentIndex((old) => old + 1);
+      }
+    }
+  }
+  
+  const Line = ({ guess }) => {
+    let char = ''
+    let boxes = []
+    let className = 'tile';
+    for (let i = 0; i < WORD_SIZE; i++) {
+      if (guess && solution[i] === guess[i])
+        className += ' correct';
+      else if (guess && solution.includes(guess[i]))
+        className += ' close';
+      else if (guess)
+        className += ' incorrect';
+      char = <div className={className}>{guess[i]}</div>;
+      className = 'tile';
+      boxes.push(char);
+    }
+  
+    return <div className='line'>{boxes}</div>
+  }
 
   return (
     <div className="App">
@@ -33,42 +88,12 @@ function App() {
           return <Line guess={guess ?? ''}/>
         })
       }
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        if (currentGuess.length === 5) {
-          let newGuesses = [...guesses];
-          newGuesses[currentIndex] = currentGuess.toUpperCase();
-          setCurrentGuess('');
-          setGuesses(newGuesses)
-          currentIndex++;
-        }
-      }}>
+      <form onSubmit={handleSubmit}>
         <input 
           className='input'
           type='text'value={currentGuess} 
-          onChange={(e) => {
-            const guess = e.target.value;
-            if (guess.length < 6 && guess.match(/^[a-zA-Z]*$/))
-              setCurrentGuess(e.target.value.toUpperCase());
-          }}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              if (currentGuess.length === 5) {
-                console.log(currentGuess, '-+-+-', wordToGuess)
-                if (currentGuess === wordToGuess) {
-                  setIsGameOver(true);
-                  setIsGuessed(true);
-                }
-                else if (currentIndex === 5)
-                  setIsGameOver(true);
-                let newGuesses = [...guesses];
-                newGuesses[currentIndex] = currentGuess.toUpperCase();
-                setCurrentGuess('');
-                setGuesses(newGuesses)
-                currentIndex++;
-              }
-            }
-          }} 
+          onChange={handleChange}
+          onKeyDown={handleKeyDown} 
         />
         <button type="submit" className='guess-button'>👍</button>
       </form>
@@ -76,44 +101,16 @@ function App() {
         isOpen={isGameOver}
         onRequestClose={resetGame}
         contentLabel="Game Over Modal"
-        style={{
-          content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-          },
-        }}
+        className="modal-content"
       >
         <h2>{isGuessed ? 'Congratulations!' : 'Game Over'}</h2>
-        <p>{isGuessed ? 'You guessed the word!' : `Better luck next time! The word was "${wordToGuess}".`}</p>
+        <p>{isGuessed ? 'You guessed the word!' : `Better luck next time! The word was "${solution}".`}</p>
         <button onClick={resetGame} className='play-again-button'>Play Again</button>
       </Modal>
+      <h1 className='how-to-play-title'>how to play:</h1>
       <HowToPlay />
     </div>
   );
-}
-
-function Line({ guess }) {
-  let char = ''
-  let boxes = []
-  let className = 'tile';
-  for (let i = 0; i < WORD_SIZE; i++) {
-    console.log(guess, '---', wordToGuess)
-    if (guess && wordToGuess[i] === guess[i])
-      className += ' correct';
-    else if (guess && wordToGuess.includes(guess[i]))
-      className += ' close';
-    else if (guess)
-      className += ' incorrect';
-    char = <div className={className}>{guess[i]}</div>;
-    className = 'tile';
-    boxes.push(char);
-  }
-
-  return <div className='line'>{boxes}</div>
 }
 
 export default App;
