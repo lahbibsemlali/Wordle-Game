@@ -2,20 +2,6 @@
 
 A simple clone of the popular Wordle game built with React.
 
-## About The Project
-
-This project is a clone of the popular Wordle game, where players attempt to guess a 5-letter word within six tries. Each guess provides feedback on how close the letters are to the correct word.
-
-### Built With
-
-* [React](https://reactjs.org/)
-* [React Modal](https://github.com/reactjs/react-modal)
-* [React Hot Toast](https://react-hot-toast.com/)
-
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
 ### Installation
 
 1. Clone the repo
@@ -32,26 +18,21 @@ To get a local copy up and running follow these simple steps.
    ```
 3. go to browser on http://localhost:3000
 
-## Usage
+## Aproach
 
-This project can be used to understand the basics of building a React application with state management, user input handling, and conditional rendering.
+I began by coding the GameBoard, which displays the grid of letter tiles, handling both row and column structure.
 
-## Roadmap
+I downloaded a JSON file containing a list of 5-letter words from the internet.
 
-- [x] Add Night Mode
-- [ ] Add More Words
-- [ ] Add Score Tracking
-- [ ] Add Multiplayer Mode
+The game logic involves choosing a random word from this file and using React's useState for state management. This tracks the current guess, guess history, game status, and other relevant data.
+I focused on making the UI simple and readable for a straightforward and enjoyable user experience.
 
-## License
+For additional functionality, I used react-modal to display popups when the game ends and react-hot-toast to show error messages.
+Features
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+## Features
 
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/wordle-clone](https://github.com/your_username/wordle-clone)
-```
-
-This version includes the essential information about the project, installation instructions, and basic usage, keeping it concise for the purpose of an assignment.
+- [x] Added Night Mode
+- [x] Implemented a button to display instructions for playing the game
+- [x] Displayed an error when the word is not in the list
+- [x] Informed the user if the word has already been entered
