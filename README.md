@@ -25,6 +25,7 @@ I began by coding the GameBoard, which displays the grid of letter tiles, handli
 I downloaded a JSON file containing a list of 5-letter words from the internet.
 
 The game logic involves choosing a random word from this file and using React's useState for state management. This tracks the current guess, guess history, game status, and other relevant data.
+
 I focused on making the UI simple and readable for a straightforward and enjoyable user experience.
 
 For additional functionality, I used react-modal to display popups when the game ends and react-hot-toast to show error messages.
