@@ -16,23 +16,21 @@ This project is a clone of the popular Wordle game, where players attempt to gue
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username/wordle-clone.git
+   git clone https://github.com/lahbibsemlali/OpenDevEd-Wordle.git
    ```
-2. Install NPM packages
+1. Navigate to project directory
    ```sh
-   npm install
+   cd OpenDevEd-Wordle
    ```
+2. run with docker compose
+   ```sh
+   docker compose up --build -d
+   ```
+3. go to browser on http://localhost:3000
 
 ## Usage
 
