@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+### README.md
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# Wordle Game
 
-## Available Scripts
+The game allows users to guess a five-letter word within six attempts, with feedback given on each guess.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Approach and Decisions](#approach-and-decisions)
+- [Additional Features](#additional-features)
+- [Usage](#usage)
+- [Acknowledgements](#acknowledgements)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Ensure you have the following installed on your machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [npm](https://www.npmjs.com/) (usually comes with Node.js)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/wordle-game.git](https://github.com/lahbibsemlali/OpenDevEd-Wordle.git
+   cd OpenDevEd-Wordle
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the Application
 
-### `npm run eject`
+1. Start the development server:
+   ```sh
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Open your browser and navigate to `http://localhost:3000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Approach and Decisions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Overall Approach
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The main objective was to create a functional and visually appealing Wordle-style game using React. The application provides a simple and intuitive user interface with responsive design principles to ensure it works well on different screen sizes.
 
-## Learn More
+### Key Decisions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **State Management:** 
+   - Used React's `useState` and `useEffect` hooks for state management and side effects.
+   - Managed game state including guesses, current guess, game status (win/lose), and night mode toggle.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Component Structure:**
+   - **App Component:** The main component managing the game state and rendering other components.
+   - **Line Component:** Renders each line of the game grid with feedback based on the guess.
 
-### Code Splitting
+3. **Styling:**
+   - Used CSS with a focus on simplicity and readability.
+   - Implemented light and dark modes for better user experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **Random Word Generation:**
+   - Loaded a list of words from a JSON file and selected a random word as the solution for each game.
 
-### Analyzing the Bundle Size
+### Additional Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Night Mode:** 
+   - Implemented a toggle button to switch between day and night modes, providing a better user experience.
+  
+2. **Modal for Game Over:**
+   - Used `react-modal` to display a modal when the game is over, providing feedback to the user and an option to restart the game.
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Enter a five-letter word and press Enter or click the guess button.
+- You have six attempts to guess the correct word.
+- The tiles will change color to indicate how close your guess was:
+  - **Green:** Correct letter in the correct position.
+  - **Yellow:** Correct letter in the wrong position.
+  - **Gray:** Incorrect letter.
+- Use the toggle button to switch between day and night modes.
 
-### Advanced Configuration
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- This project was inspired by the original Wordle game.
+- Fonts used: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Modal library: [react-modal](https://github.com/reactjs/react-modal)
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Feel free to reach out if you have any questions or need further assistance!
+```
 
-### `npm run build` fails to minify
+### Explanation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Getting Started:** Provides clear instructions on prerequisites, installation, and how to run the application locally.
+2. **Approach and Decisions:** Explains your overall approach, key decisions made during development, and component structure.
+3. **Additional Features:** Highlights any additional features you implemented, such as night mode and the game-over modal.
+4. **Usage:** Briefly explains how to play the game.
+5. **Acknowledgements:** Credits any external resources or inspirations for your project.
+
+This README file should provide a comprehensive guide to anyone looking to understand, run, and use your application.
