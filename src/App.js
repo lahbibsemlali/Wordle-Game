@@ -115,7 +115,7 @@ function App() {
           onChange={handleChange}
           onKeyDown={handleKeyDown} 
         />
-        <button type="submit" className='guess-button'>👍</button>
+        <button type="submit" className='guess-button'>➤</button>
       </form>
       <Modal
         isOpen={isGameOver}

@@ -12,10 +12,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
+}
 
-  .howto-modal {
+.howto-button:hover {
+  border: 3px solid #007BFF;
+  background-color: #000;
+  color: #007BFF;
+}
+
+.howto-modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,9 +32,9 @@
     background-color: #f9f9f9;
     max-width: 600px;
     width: 100%;
-  }
+}
   
-  .howto-overlay {
+.howto-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -39,58 +44,58 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
   
-  .howto-title {
+.howto-title {
     text-align: center;
     color: #333;
-  }
+}
   
-  .howto-description {
+.howto-description {
     text-align: center;
-  }
+}
   
-  .howto-list {
+.howto-list {
     margin: 0;
     padding: 0;
     list-style-type: decimal;
-  }
+}
   
-  .howto-list li {
+.howto-list li {
     margin: 10px 10px;
-  }
+}
 
-  .feedback-list {
+.feedback-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
-  }
+}
   
-  .feedback {
+.feedback {
     padding: 10px;
     border-radius: 5px;
     margin: 5px 0;
-  }
+}
   
-  .feedback-green {
+.feedback-green {
     background-color: #d4edda;
     border: 1px solid #c3e6cb;
     color: #155724;
-  }
+}
   
-  .feedback-yellow {
+.feedback-yellow {
     background-color: #fff3cd;
     border: 1px solid #ffeeba;
     color: #856404;
-  }
+}
   
-  .feedback-gray {
+.feedback-gray {
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
     color: #721c24;
-  }
+}
   
-  .howto-close-button {
+.howto-close-button {
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
@@ -99,5 +104,4 @@
     background-color: #dc3545;
     color: #fff;
     cursor: pointer;
-  }
-  
+}
