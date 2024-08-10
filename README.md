@@ -1,6 +1,3 @@
-Here's a simplified version of the README for your Wordle-style game project:
-
-```markdown
 # Wordle Clone
 
 A simple clone of the popular Wordle game built with React.
