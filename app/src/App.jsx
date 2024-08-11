@@ -17,7 +17,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isGuessed, setIsGuessed] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
-  const [isNightMode, setIsNightMode] = useState(false);
+  const [isNightMode, setIsNightMode] = useState(true);
 
   useEffect(() => {
     if (isNightMode) {
@@ -105,7 +105,7 @@ function App() {
     <div className="App">
       <div className='title-div'>
         <button onClick={toggleMode} className={isNightMode ? 'toggle-btn night-btn' : 'toggle-btn day-btn'}>
-          {isNightMode ? '☼' : '☾'}
+          {isNightMode ? '🔆' : '🌑'}
         </button>
         <h1 className='title'>Wordle</h1>
       </div>

@@ -65,27 +65,14 @@
   }
 
 .night-btn {
-    background-color: #c8b653;
-    color: #000;
-  }
-  
-.night-btn:hover {
-    border: 3px solid #c8b653;
-    background-color: #000;
-    color: #c8b653;
+    background-color: #121212;
+    color: #C4DFE6;
 }
-
+  
 .day-btn {
-    background-color: #000;
-    color: #c8b653;
+    background-color: #C4DFE6;
+    color: #121212;
 }
-  
-.day-btn:hover {
-    border: 3px solid #000;
-    background-color: #c8b653;
-    color: #000;
-}
-
 
 /* css for title area */
 
