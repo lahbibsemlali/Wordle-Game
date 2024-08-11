@@ -41,7 +41,6 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currentGuess.length === 5) {
-      console.log(!words.includes(currentGuess.toLowerCase()))
       if (!words.includes(currentGuess.toLowerCase()))
         toast.error('not in word list', {
           style: {
