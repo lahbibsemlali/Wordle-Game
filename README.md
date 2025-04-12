@@ -1,39 +1,74 @@
-# OpenDevEd-Wordle
+---
 
-A simple clone of the popular Wordle game built with React.
+# 🟦 Wordle Game Clone
 
-### Installation
+A clean and simple clone of the popular **Wordle** game, built with **React**. Originally created as part of a technical challenge, now shared as an open-source project for anyone to explore, play, or build upon.
 
-1. Clone the repo
-   ```sh
+---
+
+## 🚀 Installation
+
+To run the project locally using Docker:
+
+1. **Clone the repository**
+   ```bash
    git clone https://github.com/lahbibsemlali/OpenDevEd-Wordle.git
    ```
-1. Navigate to project directory
-   ```sh
+
+2. **Navigate to the project directory**
+   ```bash
    cd OpenDevEd-Wordle
    ```
-2. run with docker compose
-   ```sh
+
+3. **Start the app with Docker Compose**
+   ```bash
    docker compose up --build -d
    ```
-3. go to browser on http://localhost:3000
 
-## Aproach
+4. **Open the game in your browser**  
+   Visit [http://localhost:3000](http://localhost:3000)
 
-I began by coding the GameBoard, which displays the grid of letter tiles, handling both row and column structure.
+---
 
-I downloaded a JSON file containing a list of 5-letter words from the internet.
+## 🧠 How It Works
 
-The game logic involves choosing a random word from this file and using React's useState for state management. This tracks the current guess, guess history, game status, and other relevant data.
+- The game uses a 5-letter word list loaded from a local JSON file.
+- A random target word is selected on page load.
+- The UI renders a 5x6 grid where users can input their guesses.
+- Feedback is given after each guess:
+  - 🟩 Correct letter in the correct position
+  - 🟨 Correct letter in the wrong position
+  - ⬜ Letter not in the word
+- State is managed with React's `useState` and `useEffect` hooks.
 
-I focused on making the UI simple and readable for a straightforward and enjoyable user experience.
+---
 
-For additional functionality, I used react-modal to display popups when the game ends and react-hot-toast to show error messages.
-Features
+## ✨ Features
 
-## Features
+- 🌙 Night Mode toggle
+- ℹ️ "How to Play" instructions modal
+- ❌ Alerts for invalid or repeated guesses
+- 🎉 End-game modals for win/loss feedback
+- 🧪 Simple and readable UI with clear interactions
 
-- [x] Added Night Mode
-- [x] Implemented a button to display instructions for playing the game
-- [x] Displayed an error when the word is not in the list
-- [x] Informed the user if the word has already been entered
+---
+
+## 🛠️ Built With
+
+- [React](https://reactjs.org/)
+- [react-modal](https://github.com/reactjs/react-modal)
+- [react-hot-toast](https://react-hot-toast.com/)
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Contributions
+
+Suggestions, issues, and pull requests are welcome! Feel free to fork the repo and improve it however you like.
+
+---
