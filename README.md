@@ -1,4 +1,4 @@
-# OpenDevEd-Wordle
+# Wordle-Game
 ## Requirements:
 Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
